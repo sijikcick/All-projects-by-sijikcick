@@ -96,3 +96,4 @@ func (es *ExpressionStatement) String() string {
 	}
 	return ""
 }
+func (i *Identifier) String() string { return i.Value }
