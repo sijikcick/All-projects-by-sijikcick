@@ -7,6 +7,7 @@ import (
 
 type Node interface {
 	TokenLiteral() string
+	String() string
 }
 
 type Statement interface {
@@ -57,11 +58,6 @@ type ExpressionStatement struct {
 func (es *ExpressionStatement) statementNode() {}
 func (es *ExpressionStatement) TokenLiteral() string { return es.Token.Literal }
 
-type Node interface {
-	TokenLiteral() string
-	String() string
-}
-
 func (p *Program) String() string {
 	var out bytes.Buffer
 	for _, s := range p.Statements {
@@ -69,7 +65,7 @@ func (p *Program) String() string {
 	}
 	return out.String()
 }
-
+ 
 func (ls *LetStatement) String() string {
 	var out bytes.Buffer
 	out.WriteString(ls.TokenLiteral() + " ")
